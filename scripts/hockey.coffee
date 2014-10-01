@@ -7,8 +7,7 @@ list = []
 util = require 'util'
 fs = require 'fs'
 genSql = ''
-
-
+baseUrl = 'http://stats.swehockey.se/ScheduleAndResults/Schedule/'
 
 
 module.exports = (robot) ->
@@ -50,6 +49,14 @@ module.exports = (robot) ->
 	robot.respond /import (.*)/i, (msg) ->
 		urls = msg.match[1]
 		list = urls.split ' '
+		if list.length > 0
+			ebot.getDivision msg
+		else
+			msg.reply 'sorry I could not parse that'
+
+	robot.respond /fetch (.*)/i, (msg) ->
+		ids = msg.match[1]
+		list = ids.split(' ').map (n) -> baseUrl + n
 		if list.length > 0
 			ebot.getDivision msg
 		else
