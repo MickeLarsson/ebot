@@ -37,10 +37,6 @@ module.exports = (robot) ->
 		writeFile: (msg, genSql) -> 
 			beginTrans = 'BEGIN TRANSACTION\r\n\r\nUSE [dbOrg]\r\n';
 			rollbackTrans = '\r\n\r\nROLLBACK TRANSACTION';
-			# fs.writeFile path.join(__dirname, 'nodesql.sql'), beginTrans + genSql + rollbackTrans, (err) ->
-				 # if err isnt undefined and err isnt null
-			        # throw err
-
 			msg.reply beginTrans + genSql + rollbackTrans
 
 	robot.hear /bark/i, (msg) ->
@@ -50,6 +46,7 @@ module.exports = (robot) ->
 		urls = msg.match[1]
 		list = urls.split ' '
 		if list.length > 0
+			genSql = ''
 			ebot.getDivision msg
 		else
 			msg.reply 'sorry I could not parse that'
@@ -58,6 +55,7 @@ module.exports = (robot) ->
 		ids = msg.match[1]
 		list = ids.split(' ').map (n) -> baseUrl + n
 		if list.length > 0
+			genSql = ''
 			ebot.getDivision msg
 		else
 			msg.reply 'sorry I could not parse that'
