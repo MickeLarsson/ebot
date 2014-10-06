@@ -8,6 +8,7 @@ module.exports = (robot) ->
 
 	cronJob = cron.CronJob
 	standupNotifier = new cronJob(timer, () -> 
-			robot.adapter.send { room: 'dev' }, 'Standup om 2min!'
+			# robot.adapter.send { room: 'dev' }, 'Standup om 2min!'
+			robot.messageRoom '#dev', 'Stanup om 2min!'
 		, true, 'Europe/Stockholm')
 
