@@ -3,7 +3,7 @@
 cron = require 'cron'
 
 module.exports = (robot) ->
-	timer = '00 58 09 * * 1-5'
+	timer = '00 58 07 * * 1-5'
 
 	cronJob = cron.CronJob
 	standupNotifier = new cronJob(timer, () -> 
