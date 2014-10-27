@@ -5,7 +5,7 @@ participants = ['Ridder', 'William', 'Johan', 'Larsson', 'Jeremi', 'Storm', 'Ale
 
 module.exports = (robot) ->
 	# timer = '* * * * * *'
-	timer = '00 58 07 * * 1-5'
+	timer = '00 58 09 * * 1-5'
 
 	robot.random = (items) ->
 		items[ Math.floor(Math.random() * items.length) ]
