@@ -12,6 +12,6 @@ module.exports = (robot) ->
 
 	cronJob = cron.CronJob
 	standupNotifier = new cronJob(timer, () -> 
-			robot.messageRoom '#dev', 'Standup om 2min, idag ska ' + robot.random(participants) + ' börja tala'
+			robot.messageRoom '#dev', '@channel: Standup om 2min, idag ska ' + robot.random(participants) + ' börja tala'
 		, true, 'Europe/Stockholm')
 
