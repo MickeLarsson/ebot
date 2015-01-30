@@ -1,7 +1,7 @@
 'use strict'
 
 cron = require 'cron'
-participants = ['Ridder', 'William', 'Johan', 'Larsson', 'Jeremi', 'Storm', 'Alex', 'Emil', 'Jimbo']
+participants = ['Ridder', 'William', 'Johan', 'Larsson', 'Jeremi', 'Storm', 'Alex', 'Emil', 'Jimbo', 'Snöret']
 
 module.exports = (robot) ->
 	# timer = '* * * * * *'
@@ -12,6 +12,6 @@ module.exports = (robot) ->
 
 	cronJob = cron.CronJob
 	standupNotifier = new cronJob(timer, () -> 
-			robot.messageRoom '#dev', '@channel: Standup om 2min, idag ska ' + robot.random(participants) + ' börja tala'
+			robot.messageRoom '#dev', 'Standup om 2min, idag ska ' + robot.random(participants) + ' börja tala'
 		, true, 'Europe/Stockholm')
 
