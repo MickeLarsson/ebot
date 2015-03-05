@@ -1,7 +1,7 @@
 'use strict'
 
 cron = require 'cron'
-participants = ['Ridder', 'William', 'Johan', 'Larsson', 'Jeremi', 'Nanberg', 'Emil', 'Jimbo', 'Snöret', 'Oskar']
+participants = ['Ridder', 'William', 'Johan', 'Larsson', 'Jeremi', 'Emil', 'Jimbo', 'Snöret', 'Oskar']
 
 module.exports = (robot) ->
 	# timer = '* * * * * *'
