@@ -35,11 +35,6 @@ module.exports = (robot) ->
 					, (err, data) ->
 						msg.reply "Cards have been moved"
 					)
-
-   #                 for id in cardIds
-						#trello.put('/1/cards/' + id, { idBoard: config.releaseBoardId, idList: newListId }, (err, data) ->
-							#console.log err
-				  #      )
 				)
 			)
 
