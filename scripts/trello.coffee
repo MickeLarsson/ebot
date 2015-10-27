@@ -34,6 +34,7 @@ module.exports = (robot) ->
 						)
 					, (err, data) ->
 						msg.reply "Cards have been moved"
+						cardIds = []
 					)
 				)
 			)
