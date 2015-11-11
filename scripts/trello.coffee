@@ -1,5 +1,6 @@
 fs = require 'fs'
 Trello = require('node-trello')
+_ = require('lodash')
 async = require 'async'
 
 trelloBase = 'https://api.trello.com'
@@ -40,3 +41,19 @@ module.exports = (robot) ->
 			)
 
 		)
+    
+    robot.respons /bug me/i, (msg) ->
+        trello = new Trello(config.trelloKey, config.trelloToken)
+
+       trello.get("/1/boards/" + boardId + "/lists?cards=open", function(err, data) {
+           var lists = _.filter(data, function(n){
+               return n.name.toLowerCase() !== 'known issue';
+           });
+
+           var cardCount = _.sum(lists, function(l){
+               return l.cards.length;
+           });
+
+           msg.reply('We have ' + cardCount + ' cards on the bug board (Known issue excluded)'); 
+       });
+
